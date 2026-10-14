@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(uv run python run.py:*)",
+      "PowerShell(uv run python src/clean.py:*)",
+      "PowerShell(uv run pytest:*)",
+      "PowerShell(Get-Process:*)",
+      "PowerShell(Get-Content:*)",
+      "PowerShell(Get-ChildItem:*)"
+    ]
+  }
+}

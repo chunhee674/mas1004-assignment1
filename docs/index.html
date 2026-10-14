@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Image Classifier</title>
+<link rel="icon" href="data:,">
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --muted: #6b6b6b;
+    --line: #e0e0e0;
+    --panel: #f7f7f7;
+    --accent: #2f6fdb;
+    --ok: #1d8a4e;
+    --bad: #c23636;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16181c; --fg: #ececec; --muted: #9aa0a6; --line: #2e3238;
+      --panel: #1e2126; --accent: #5b96f5; --ok: #46c07f; --bad: #ef6b6b;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 24px 16px 64px;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.55;
+  }
+  main { max-width: 860px; margin: 0 auto; }
+  h1 { font-size: 1.6rem; margin: 0 0 4px; }
+  .sub { color: var(--muted); margin: 0 0 20px; }
+  .badge {
+    display: inline-block; padding: 5px 11px; border-radius: 999px;
+    font-size: .82rem; border: 1px solid var(--line); margin-bottom: 20px;
+  }
+  .badge.ok { color: var(--ok); border-color: var(--ok); }
+  .badge.bad { color: var(--bad); border-color: var(--bad); }
+  .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+  button {
+    font: inherit; padding: 8px 14px; border-radius: 8px;
+    border: 1px solid var(--line); background: var(--panel); color: var(--fg);
+    cursor: pointer;
+  }
+  button.on { border-color: var(--accent); color: var(--accent); }
+  select {
+    font: inherit; padding: 6px 8px; border-radius: 8px; max-width: 260px;
+    border: 1px solid var(--line); background: var(--bg); color: var(--fg);
+  }
+  button:disabled { opacity: .5; cursor: default; }
+  .panel {
+    border: 1px solid var(--line); border-radius: 12px;
+    padding: 16px; background: var(--panel); margin-bottom: 20px;
+  }
+  .panel[hidden] { display: none; }
+  .stage { display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-start; }
+  video, #drawPad, #preview {
+    border: 1px solid var(--line); border-radius: 8px; background: #fff;
+    max-width: 100%;
+  }
+  #drawPad { touch-action: none; cursor: crosshair; }
+  .shot { width: 160px; height: 160px;
+          border: 1px solid var(--line); border-radius: 6px; }
+  .row { display: flex; align-items: center; gap: 10px; margin: 6px 0; }
+  .name { width: 34%; font-size: .9rem; overflow: hidden;
+          text-overflow: ellipsis; white-space: nowrap; }
+  .bar { flex: 1; height: 16px; background: var(--bg);
+         border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+  .fill { height: 100%; width: 0; background: var(--accent); }
+  .pct { width: 58px; text-align: right; font-variant-numeric: tabular-nums;
+         font-size: .88rem; color: var(--muted); }
+  .row.top .name { font-weight: 600; }
+  .row.top .pct { color: var(--fg); }
+  .hint { color: var(--muted); font-size: .88rem; }
+  footer { margin-top: 36px; padding-top: 16px; border-top: 1px solid var(--line);
+           color: var(--muted); font-size: .85rem; }
+  footer a { color: inherit; }
+  code { background: var(--panel); padding: 1px 5px; border-radius: 4px;
+         font-size: .88em; }
+</style>
+</head>
+<body>
+<main>
+  <h1 id="title">My Image Classifier</h1>
+  <p class="sub" id="subtitle">Loading the model…</p>
+
+  <div class="badge" id="selftest">self test: running…</div>
+
+  <div class="tabs">
+    <button id="tabCam" class="on">Webcam</button>
+    <button id="tabFile">Upload a picture</button>
+    <button id="tabDraw">Draw it</button>
+  </div>
+
+  <section class="panel" id="panelCam">
+    <div class="stage">
+      <video id="video" width="320" height="240" autoplay playsinline muted></video>
+      <div>
+        <div class="row"><button id="camToggle">Turn the camera on</button></div>
+        <div class="row">
+          <label for="camPick">Camera</label>
+          <select id="camPick"><option value="">Default camera</option></select>
+        </div>
+        <p class="hint">Nothing leaves your computer. The model runs here in
+          the page.</p>
+        <p class="hint">The names of the cameras appear after you turn one on
+          for the first time. A virtual camera, such as the one in OBS, is in
+          the list too.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="panelFile" hidden>
+    <input type="file" id="file" accept="image/*">
+    <p class="hint">Pick a photo from your own phone or computer.</p>
+    <img id="preview" alt="" hidden>
+  </section>
+
+  <section class="panel" id="panelDraw" hidden>
+    <div class="stage">
+      <canvas id="drawPad" width="280" height="280"></canvas>
+      <div>
+        <div class="row"><button id="clearPad">Clear</button></div>
+        <p class="hint">Draw with the mouse or your finger.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="stage">
+      <div>
+        <div class="hint">What the model actually sees</div>
+        <canvas id="small" class="shot" width="224" height="224"></canvas>
+      </div>
+      <div style="flex:1; min-width:260px">
+        <div id="bars"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Built for MAS1004 Data &amp; AI, Sogang University. The model is
+      ResNet18, trained first on ImageNet and then on images collected by the
+      student. It runs inside this page with
+      <a href="https://onnxruntime.ai/docs/tutorials/web/">ONNX Runtime Web</a>,
+      so it works with no server at all and no picture leaves your device.
+      How a picture is prepared for it is in <code>app.js</code>.</p>
+  </footer>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.30.0/dist/ort.wasm.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

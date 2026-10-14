@@ -1,0 +1,29 @@
+{
+  "format": "mas1004-onnx-v1",
+  "labels": [
+    "atlanticus_brunneri",
+    "gampsocleis_sedakovii_obscura",
+    "gampsocleis_ussuriensis",
+    "paratlanticus_ussuriensis",
+    "tettigonia_ussuriana"
+  ],
+  "input": {
+    "name": "image",
+    "resize": 256,
+    "crop": 224,
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "output": {
+    "name": "logits"
+  },
+  "n_parameters": 11179077
+}

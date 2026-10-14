@@ -1,0 +1,165 @@
+% MAS1004 Assignment 1: long report.
+%
+% You fill this in with your agent, in your repository. AGENTS.md tells the
+% agent how. Red text in the PDF is what still has to be replaced.
+%
+% - Pictures go in figures/. Copy them from results/, which is not in git.
+% - Outputs go in outputs/. run.py saves what it prints in
+%   results/<tag>_output.txt, and PLAN.md saves the other outputs in results/
+%   with `| tee results/...`. Copy them here. \outputfile{outputs/check.txt}
+%   prints a file exactly as it is. Every number in this report has to come
+%   from such an output.
+%
+% To make the PDF: compress this folder into a zip, and on Overleaf choose
+% New Project, Upload Project. Set Menu, Compiler to XeLaTeX, and Recompile.
+
+\documentclass[11pt]{article}
+\usepackage{mas1004}
+
+\reporttitle{Assignment 1: Long report}
+\studentname{Your name}
+\studentid{Your student ID}
+
+\begin{document}
+\makeheader
+
+% ---------------------------------------------------------------------------
+\section*{Problem 1. Categories and images}
+
+\subsection*{Why these categories}
+\fillin{Why these categories, and why you care about them.}
+
+\subsection*{What I expected the model to use}
+\fillin{What you thought, before training, the model would use to tell them
+apart: shape, colour, texture, background, or something else.}
+
+\subsection*{Images per category}
+\fillin{How many images you got for each category.}
+
+% ---------------------------------------------------------------------------
+\section*{Problem 2. Preparing an image}
+
+\sidebyside{figures/prepare_original.jpg}{\fillin{the image as downloaded}}
+           {figures/prepare_result.png}{\fillin{what prepare\_image made of it}}
+
+\fillin{What was cut off, and an image where the crop cut off part of the
+thing you care about.}
+
+% ---------------------------------------------------------------------------
+\section*{Problem 3. First training runs}
+
+\begin{center}\footnotesize
+\begin{tabular}{llllrrrr}
+\toprule
+tag & start & trained & epochs & lr & trainable parameters & train acc. & test acc. \\
+\midrule
+\multicolumn{8}{l}{\fillin{one row per run, as run.py printed it}} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\picturefile{figures/run_curves.png}
+
+\fillin{Did the loss go down? Did it keep going down, or flatten out?}
+
+\fillin{The gap between train and test accuracy, and what it means.}
+
+\begin{center}\picturefile[0.5\linewidth]{figures/run_confusion.png}\end{center}
+
+\fillin{Which two categories it mixes up most, and whether that surprised you.}
+
+\fillin{How far apart the test accuracies are, starting from ImageNet and from
+random numbers, and why you think that is.}
+
+\fillin{How close training only the last layer gets to training all of them.}
+
+\subsection*{Output of the runs}
+\outputfile{outputs/run_output.txt}
+\outputfile{outputs/scratch_output.txt}
+\outputfile{outputs/frozen_output.txt}
+% One more line like these for the setting you chose, named by its tag.
+\fillin{the output of the run with your own setting}
+
+% ---------------------------------------------------------------------------
+\section*{Problem 4. Cleaning}
+
+\subsection*{My rule}
+\fillin{Your rule, in one or two sentences, as you wrote it before you
+started.}
+
+\subsection*{Three kinds of junk}
+\fillin{Three kinds of junk, with one picture of each.}
+
+% For example: \picturefile[0.3\linewidth]{figures/junk_1.jpg}
+
+\subsection*{What I removed}
+\outputfile{outputs/clean_count.txt}
+
+\fillin{How many near copies it found, and what you did with them.}
+
+\fillin{Of the first 20 suspects in each class, how many you removed. Whether
+the suspects included junk you had missed, and whether you found junk it did
+not list.}
+
+\subsection*{Before and after cleaning}
+\outputfile{outputs/compare.txt}
+
+\fillin{The test accuracy and the accuracy on your new images, before and
+after. If a number went down, why you think it did.}
+
+% ---------------------------------------------------------------------------
+\section*{Problem 5. Images from a new source}
+
+\fillin{Where your new images came from, and why you are sure none of them are
+among your downloads.}
+
+\outputfile{outputs/overlap.txt}
+
+\fillin{The accuracy on your downloaded test set and on your new images, side
+by side.}
+
+\fillin{Five mistakes it was confident about, with the pictures. For each one,
+what in the image you think pushed it the wrong way.}
+
+\fillin{What is different about your new images: background, lighting, angle,
+distance, what else is in the frame.}
+
+% ---------------------------------------------------------------------------
+\section*{Problem 6. The demo}
+
+Address: \fillin{your GitHub Pages address}
+
+\fillin{What happens when you show it something that is none of your
+categories.}
+
+% ---------------------------------------------------------------------------
+\section*{Problem 7. What the model looks at}
+
+% Copy this subsection once for every guess.
+\subsection*{Guess 1}
+
+\fillin{The guess, and what in your images or your model's mistakes made you
+think of it.}
+
+\fillin{The change you chose, and why it tests the guess.}
+
+My request to the agent, word for word:
+\begin{quote}
+\fillin{the request}
+\end{quote}
+
+% One \sidebyside for every image you changed.
+\sidebyside{figures/guess1_original_1.jpg}{\fillin{original: the model's answer}}
+           {figures/guess1_changed_1.jpg}{\fillin{changed: the model's answer}}
+
+\fillin{What the results say about the guess.}
+
+\subsection*{What I now think the model uses}
+\fillin{What you now think the model uses to tell your categories apart, and
+how sure you are.}
+
+% ---------------------------------------------------------------------------
+\section*{Appendix. Output of check.py}
+\outputfile{outputs/check.txt}
+
+\end{document}

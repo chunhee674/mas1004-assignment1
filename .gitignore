@@ -1,0 +1,14 @@
+# The images you download and the pictures you take. Too big for a repository,
+# and you hand them in as a zip on LMS instead.
+data/
+
+# Training output. Put the pictures in your report, not in git.
+results/
+*.pt
+
+.venv/
+__pycache__/
+.pytest_cache/
+
+# Do NOT add docs/ here. GitHub Pages serves that folder, so your trained
+# model has to be committed and pushed like everything else.
