@@ -36,63 +36,40 @@ function softmax(logits) {
 // Preparing a picture, the same way prepare_image did in Python
 // ---------------------------------------------------------------------------
 
-const scratch = document.createElement("canvas");
-
-function resizeShorterSide(source, target) {
-  // Step 2: the shorter side becomes `target` and the shape is kept.
-  // Going from a 4000 pixel photo to 256 in one step throws away almost every
-  // pixel. Halving repeatedly keeps much more, and lands closer to what
-  // Pillow does in Python.
-  let width = source.videoWidth || source.naturalWidth || source.width;
-  let height = source.videoHeight || source.naturalHeight || source.height;
-  const scale = target / Math.min(width, height);
-  const finalWidth = width <= height ? target : Math.floor(width * scale);
-  const finalHeight = width <= height ? Math.floor(height * scale) : target;
-
-  let stage = document.createElement("canvas");
-  stage.width = width;
-  stage.height = height;
-  stage.getContext("2d").drawImage(source, 0, 0, width, height);
-
-  while (width >= finalWidth * 2 && height >= finalHeight * 2) {
-    const next = document.createElement("canvas");
-    next.width = Math.floor(width / 2);
-    next.height = Math.floor(height / 2);
-    const context = next.getContext("2d");
-    context.imageSmoothingEnabled = true;
-    context.imageSmoothingQuality = "high";
-    context.drawImage(stage, 0, 0, next.width, next.height);
-    stage = next;
-    width = next.width;
-    height = next.height;
-  }
-
-  if (width === finalWidth && height === finalHeight) return stage;
-  const last = document.createElement("canvas");
-  last.width = finalWidth;
-  last.height = finalHeight;
-  const context = last.getContext("2d");
-  context.imageSmoothingEnabled = true;
-  context.imageSmoothingQuality = "high";
-  context.drawImage(stage, 0, 0, finalWidth, finalHeight);
-  return last;
-}
+const reader = document.createElement("canvas");   // holds a picture at full size
+const scratch = document.createElement("canvas");  // holds the 224 x 224 the network sees
 
 function toInput(source) {
   const { resize, crop, mean, std } = model.input;
 
   // Step 1 happens by itself: a canvas always holds red, green, blue.
-  const resized = resizeShorterSide(source, resize);
+  // The picture is read at its full size, with no scaling by the browser.
+  const inW = source.videoWidth || source.naturalWidth || source.width;
+  const inH = source.videoHeight || source.naturalHeight || source.height;
+  reader.width = inW;
+  reader.height = inH;
+  const readContext = reader.getContext("2d", { willReadFrequently: true });
+  readContext.clearRect(0, 0, inW, inH);
+  readContext.drawImage(source, 0, 0);
+  const original = readContext.getImageData(0, 0, inW, inH).data;
 
-  // Step 3: cut out the crop x crop square in the middle.
-  const left = Math.round((resized.width - crop) / 2);
-  const top = Math.round((resized.height - crop) / 2);
+  // Step 2: the shorter side becomes `resize` and the shape is kept, with the
+  // same bilinear resizing as Pillow (see resize.js), not the browser's own.
+  const size = PillowResize.shorterSideSize(inW, inH, resize);
+  const resized = PillowResize.resize(original, inW, inH, size.width, size.height);
+
+  // Step 3: cut out the crop x crop square in the middle. Python's round() sends
+  // a half to the even number, so this does too.
+  const left = PillowResize.pythonRound((size.width - crop) / 2);
+  const top = PillowResize.pythonRound((size.height - crop) / 2);
+  const pixels = new Uint8ClampedArray(crop * crop * 4);
+  for (let y = 0; y < crop; y++) {
+    const from = ((top + y) * size.width + left) * 4;
+    pixels.set(resized.subarray(from, from + crop * 4), y * crop * 4);
+  }
   scratch.width = crop;
   scratch.height = crop;
-  const context = scratch.getContext("2d", { willReadFrequently: true });
-  context.clearRect(0, 0, crop, crop);
-  context.drawImage(resized, left, top, crop, crop, 0, 0, crop, crop);
-  const pixels = context.getImageData(0, 0, crop, crop).data;
+  scratch.getContext("2d").putImageData(new ImageData(pixels, crop, crop), 0, 0);
 
   // Steps 4, 5 and 6: divide by 255, subtract the mean and divide by the
   // standard deviation of each channel, and put the channels first.
