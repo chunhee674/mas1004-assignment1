@@ -1,0 +1,16 @@
+test/add_001 옆  wing pattern 29.3% of the wing  insect brightness 169.3  picture brightness 88.4  model right
+test/add_003 옆  wing pattern 22.4% of the wing  insect brightness 139.7  picture brightness 132.4  model right
+test/add_012 옆  wing pattern 17.2% of the wing  insect brightness 181.7  picture brightness 99.1  model wrong
+test/add_015 옆  wing pattern 43.0% of the wing  insect brightness 134.1  picture brightness 148.0  model right
+test/add_026 위  wing pattern 40.0% of the wing  insect brightness 56.7  picture brightness 172.3  model right
+test/images (4) 옆  wing pattern 39.5% of the wing  insect brightness 126.0  picture brightness 94.5  model wrong
+test/img 옆  wing pattern 16.8% of the wing  insect brightness 163.7  picture brightness 156.5  model wrong
+test/natureobserve_0706085021173_42626_570_crop 위  wing pattern 40.9% of the wing  insect brightness 132.1  picture brightness 167.8  model right
+test/다운로드 옆  wing pattern 27.0% of the wing  insect brightness 109.2  picture brightness 194.2  model wrong
+test/추가_0036 위  wing pattern 23.6% of the wing  insect brightness 108.7  picture brightness 174.8  model right
+new_images/p1 옆  wing pattern 35.9% of the wing  insect brightness 97.6  picture brightness 149.9  model right
+new_images/p2 옆  wing pattern 46.6% of the wing  insect brightness 119.7  picture brightness 104.6  model wrong
+new_images/p3 위  wing pattern 33.8% of the wing  insect brightness 125.5  picture brightness 178.6  model right
+new_images/p4 옆  wing pattern 21.9% of the wing  insect brightness 129.0  picture brightness 145.5  model wrong
+new_images/p5 옆  wing pattern 21.9% of the wing  insect brightness 109.0  picture brightness 140.7  model wrong
+insect brightness: right 8 pictures mean 120.5, wrong 7 pictures mean 134.0

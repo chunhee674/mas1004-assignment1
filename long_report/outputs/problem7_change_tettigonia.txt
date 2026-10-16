@@ -1,0 +1,23 @@
+test/add_012 옆 top [(439, 202, 739, 249)] belly (336, 293, 651, 373)
+test/add_017 위 top [(183, 358, 351, 578)] belly None
+test/add_029 옆 top [(351, 176, 497, 219), (483, 124, 702, 154)] belly (424, 197, 702, 271)
+test/add_030 옆 top [(264, 174, 444, 217), (423, 127, 571, 174)] belly (159, 238, 455, 328)
+test/다운로드 (12) 옆 top [(100, 91, 245, 104)] belly (129, 117, 243, 141)
+test/다운로드 (13) 옆 top [(190, 156, 465, 185)] belly (206, 199, 428, 241)
+test/다운로드 (15) 옆 top [(61, 124, 209, 146)] belly (117, 163, 335, 214)
+test/다운로드 (19) 옆 top [(104, 59, 209, 77)] belly (119, 77, 206, 97)
+test/다운로드 (23) 옆 top [(83, 88, 180, 103)] belly (85, 103, 153, 132)
+test/다운로드 (8) 옆 top [(68, 80, 231, 97)] belly (70, 109, 204, 146)
+new_images/p1 옆 top [(234, 333, 561, 362)] belly (117, 386, 514, 470)
+new_images/p2 옆 top [(151, 148, 551, 178)] belly (234, 229, 551, 298)
+new_images/p3 위 top [(22, 190, 512, 267)] belly None
+new_images/p4 위 top [(283, 177, 341, 416)] belly None
+new_images/p5 위 top [(301, 266, 360, 473)] belly None
+p1: insect brightness 78.1, picture brightness 143.6
+p1 insect x1.3: insect brightness 100
+p1 insect x1.6: insect brightness 123
+p1 insect x2.0: insect brightness 151
+test/add_012: insect brightness 106.1
+test/add_029: insect brightness 187.2
+test/add_030: insect brightness 128.2
+test/다운로드 (12): insect brightness 133.5

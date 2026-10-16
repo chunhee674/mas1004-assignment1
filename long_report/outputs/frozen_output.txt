@@ -1,0 +1,32 @@
+reading C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\data\clean
+304 images, 5 classes, read in 3 s
+  atlanticus_brunneri      59
+  gampsocleis_sedakovii_obscura 50
+  gampsocleis_ussuriensis  61
+  paratlanticus_ussuriensis 81
+  tettigonia_ussuriana     53
+training on 243, testing on 61
+model has 11,179,077 parameters, 2,565 of them will be trained
+epoch  1/10  train loss 1.6139 acc 0.276  test loss 1.4899 acc 0.311
+epoch  2/10  train loss 1.3869 acc 0.395  test loss 1.2657 acc 0.492
+epoch  3/10  train loss 1.1762 acc 0.601  test loss 1.1404 acc 0.607
+epoch  4/10  train loss 1.0348 acc 0.654  test loss 1.0543 acc 0.607
+epoch  5/10  train loss 0.9255 acc 0.737  test loss 0.9879 acc 0.639
+epoch  6/10  train loss 0.8410 acc 0.786  test loss 0.9373 acc 0.607
+epoch  7/10  train loss 0.7706 acc 0.807  test loss 0.8944 acc 0.639
+epoch  8/10  train loss 0.7036 acc 0.815  test loss 0.8590 acc 0.607
+epoch  9/10  train loss 0.6727 acc 0.815  test loss 0.8242 acc 0.623
+epoch 10/10  train loss 0.6177 acc 0.835  test loss 0.7956 acc 0.639
+
+trained in 1.4 minutes
+train accuracy 90.1%
+test  accuracy 63.9%
+wrote C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\results\frozen_curves.png
+wrote C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\results\frozen_confusion.png
+wrote C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\results\frozen_worst.png
+wrote C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\results\frozen_model.pt
+
+One line for your experiment table:
+| frozen | ImageNet | last layer | 10 | 0.001 | 2,565 | 90.1% | 63.9% |
+
+To put this model on your web page: python src/export_web.py --tag frozen

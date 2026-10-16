@@ -1,0 +1,39 @@
+reading C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\data\clean
+249 images, 5 classes, read in 3 s
+  atlanticus_brunneri      49
+  gampsocleis_sedakovii_obscura 39
+  gampsocleis_ussuriensis  50
+  paratlanticus_ussuriensis 68
+  tettigonia_ussuriana     43
+
+reading fixed test set C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\data\test
+  atlanticus_brunneri      10
+  gampsocleis_sedakovii_obscura 10
+  gampsocleis_ussuriensis  10
+  paratlanticus_ussuriensis 10
+  tettigonia_ussuriana     10
+training on 249, testing on 50
+model has 11,179,077 parameters, 11,179,077 of them will be trained
+epoch  1/10  train loss 1.6612 acc 0.205  test loss 1.6159 acc 0.220
+epoch  2/10  train loss 1.2700 acc 0.534  test loss 1.7325 acc 0.320
+epoch  3/10  train loss 0.9929 acc 0.707  test loss 1.7213 acc 0.320
+epoch  4/10  train loss 0.7001 acc 0.803  test loss 1.7606 acc 0.300
+epoch  5/10  train loss 0.4325 acc 0.932  test loss 2.0297 acc 0.260
+epoch  6/10  train loss 0.2278 acc 0.968  test loss 1.7478 acc 0.320
+epoch  7/10  train loss 0.1358 acc 0.980  test loss 2.1402 acc 0.340
+epoch  8/10  train loss 0.0762 acc 1.000  test loss 2.4340 acc 0.280
+epoch  9/10  train loss 0.0612 acc 0.996  test loss 2.0491 acc 0.340
+epoch 10/10  train loss 0.0304 acc 1.000  test loss 2.0730 acc 0.300
+
+trained in 3.8 minutes
+train accuracy 100.0%
+test  accuracy 30.0%
+wrote C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\results\scratch_fixed_curves.png
+wrote C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\results\scratch_fixed_confusion.png
+wrote C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\results\scratch_fixed_worst.png
+wrote C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\results\scratch_fixed_model.pt
+
+One line for your experiment table:
+| scratch_fixed | random | all layers | 10 | 0.0001 | 11,179,077 | 100.0% | 30.0% |
+
+To put this model on your web page: python src/export_web.py --tag scratch_fixed

@@ -1,0 +1,26 @@
+reading C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\data\clean
+304 images, 5 classes, read in 2 s
+  atlanticus_brunneri      59
+  gampsocleis_sedakovii_obscura 50
+  gampsocleis_ussuriensis  61
+  paratlanticus_ussuriensis 81
+  tettigonia_ussuriana     53
+training on 243, testing on 61
+model has 11,179,077 parameters, 11,179,077 of them will be trained
+epoch  1/4  train loss 1.2935 acc 0.449  test loss 0.8730 acc 0.689
+epoch  2/4  train loss 0.3337 acc 0.963  test loss 0.7104 acc 0.672
+epoch  3/4  train loss 0.1297 acc 1.000  test loss 0.6030 acc 0.705
+epoch  4/4  train loss 0.0551 acc 1.000  test loss 0.5359 acc 0.787
+
+trained in 1.4 minutes
+train accuracy 100.0%
+test  accuracy 78.7%
+wrote C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\results\custom_curves.png
+wrote C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\results\custom_confusion.png
+wrote C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\results\custom_worst.png
+wrote C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\results\custom_model.pt
+
+One line for your experiment table:
+| custom | ImageNet | all layers | 4 | 0.0001 | 11,179,077 | 100.0% | 78.7% |
+
+To put this model on your web page: python src/export_web.py --tag custom

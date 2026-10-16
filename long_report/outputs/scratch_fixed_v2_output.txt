@@ -1,0 +1,39 @@
+reading C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\data\clean
+227 images, 5 classes, read in 2 s
+  atlanticus_brunneri      43
+  gampsocleis_sedakovii_obscura 39
+  gampsocleis_ussuriensis  43
+  paratlanticus_ussuriensis 59
+  tettigonia_ussuriana     43
+
+reading fixed test set C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\data\test
+  atlanticus_brunneri      10
+  gampsocleis_sedakovii_obscura 10
+  gampsocleis_ussuriensis  10
+  paratlanticus_ussuriensis 10
+  tettigonia_ussuriana     10
+training on 227, testing on 50
+model has 11,179,077 parameters, 11,179,077 of them will be trained
+epoch  1/10  train loss 1.6039 acc 0.282  test loss 1.5716 acc 0.260
+epoch  2/10  train loss 1.2701 acc 0.533  test loss 1.6722 acc 0.220
+epoch  3/10  train loss 1.0177 acc 0.661  test loss 1.5616 acc 0.220
+epoch  4/10  train loss 0.7892 acc 0.802  test loss 1.6203 acc 0.320
+epoch  5/10  train loss 0.6409 acc 0.885  test loss 1.6408 acc 0.420
+epoch  6/10  train loss 0.5653 acc 0.903  test loss 2.1664 acc 0.360
+epoch  7/10  train loss 0.3524 acc 0.952  test loss 3.5631 acc 0.260
+epoch  8/10  train loss 0.4639 acc 0.903  test loss 1.8306 acc 0.320
+epoch  9/10  train loss 0.5333 acc 0.899  test loss 2.4381 acc 0.320
+epoch 10/10  train loss 0.2585 acc 0.938  test loss 1.9144 acc 0.320
+
+trained in 3.4 minutes
+train accuracy 97.8%
+test  accuracy 32.0%
+wrote C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\results\scratch_fixed_v2_curves.png
+wrote C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\results\scratch_fixed_v2_confusion.png
+wrote C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\results\scratch_fixed_v2_worst.png
+wrote C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\results\scratch_fixed_v2_model.pt
+
+One line for your experiment table:
+| scratch_fixed_v2 | random | all layers | 10 | 0.0001 | 11,179,077 | 97.8% | 32.0% |
+
+To put this model on your web page: python src/export_web.py --tag scratch_fixed_v2

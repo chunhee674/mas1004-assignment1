@@ -1,0 +1,49 @@
+reading C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\data\clean
+249 images, 5 classes, read in 2 s
+  atlanticus_brunneri      49
+  gampsocleis_sedakovii_obscura 39
+  gampsocleis_ussuriensis  50
+  paratlanticus_ussuriensis 68
+  tettigonia_ussuriana     43
+
+reading fixed test set C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\data\test
+  atlanticus_brunneri      10
+  gampsocleis_sedakovii_obscura 10
+  gampsocleis_ussuriensis  10
+  paratlanticus_ussuriensis 10
+  tettigonia_ussuriana     10
+training on 249, testing on 50
+model has 11,179,077 parameters, 2,565 of them will be trained
+epoch  1/20  train loss 1.6827 acc 0.221  test loss 1.5219 acc 0.280
+epoch  2/20  train loss 1.3939 acc 0.402  test loss 1.3583 acc 0.400
+epoch  3/20  train loss 1.1731 acc 0.598  test loss 1.1940 acc 0.440
+epoch  4/20  train loss 1.0307 acc 0.675  test loss 1.0816 acc 0.540
+epoch  5/20  train loss 0.9109 acc 0.743  test loss 1.0183 acc 0.600
+epoch  6/20  train loss 0.7897 acc 0.831  test loss 0.9339 acc 0.600
+epoch  7/20  train loss 0.7574 acc 0.791  test loss 0.8758 acc 0.620
+epoch  8/20  train loss 0.7089 acc 0.835  test loss 0.8764 acc 0.660
+epoch  9/20  train loss 0.6269 acc 0.831  test loss 0.8145 acc 0.660
+epoch 10/20  train loss 0.6213 acc 0.823  test loss 0.7830 acc 0.680
+epoch 11/20  train loss 0.5346 acc 0.904  test loss 0.7748 acc 0.680
+epoch 12/20  train loss 0.5446 acc 0.876  test loss 0.7392 acc 0.700
+epoch 13/20  train loss 0.4885 acc 0.904  test loss 0.7176 acc 0.760
+epoch 14/20  train loss 0.4956 acc 0.888  test loss 0.7109 acc 0.760
+epoch 15/20  train loss 0.4336 acc 0.916  test loss 0.6890 acc 0.740
+epoch 16/20  train loss 0.4385 acc 0.932  test loss 0.6869 acc 0.760
+epoch 17/20  train loss 0.4319 acc 0.900  test loss 0.6758 acc 0.760
+epoch 18/20  train loss 0.3923 acc 0.936  test loss 0.6480 acc 0.780
+epoch 19/20  train loss 0.3683 acc 0.940  test loss 0.6615 acc 0.780
+epoch 20/20  train loss 0.3612 acc 0.944  test loss 0.6427 acc 0.780
+
+trained in 2.5 minutes
+train accuracy 95.2%
+test  accuracy 78.0%
+wrote C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\results\frozen_fixed_lr3_curves.png
+wrote C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\results\frozen_fixed_lr3_confusion.png
+wrote C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\results\frozen_fixed_lr3_worst.png
+wrote C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\results\frozen_fixed_lr3_model.pt
+
+One line for your experiment table:
+| frozen_fixed_lr3 | ImageNet | last layer | 20 | 0.001 | 2,565 | 95.2% | 78.0% |
+
+To put this model on your web page: python src/export_web.py --tag frozen_fixed_lr3

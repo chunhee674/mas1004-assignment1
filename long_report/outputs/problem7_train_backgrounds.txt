@@ -1,0 +1,18 @@
+== dark background (border mean < 70)
+atlanticus_brunneri            43 pictures  border brightness 126.1  dark  5 (11.6%)
+    dark: 11_Atlanticus_brunneri_KR.jpg (67.0)
+    dark: add_009(cut).jpg (39.9)
+    dark: 다운로드 (1).jpg (27.5)
+    dark: 추가_0003.jpg (47.7)
+    dark: 추가_0008(cut).jpg (67.9)
+gampsocleis_sedakovii_obscura  39 pictures  border brightness 147.8  dark  2 ( 5.1%)
+gampsocleis_ussuriensis        43 pictures  border brightness 139.8  dark  1 ( 2.3%)
+paratlanticus_ussuriensis      59 pictures  border brightness 136.5  dark  0 ( 0.0%)
+tettigonia_ussuriana           43 pictures  border brightness 122.0  dark  6 (14.0%)
+
+== kind of background
+atlanticus_brunneri            43 pictures  leaves 10 ( 23%)  grey stone/concrete 20 ( 47%)  dark  5 ( 12%)  other  8
+gampsocleis_sedakovii_obscura  39 pictures  leaves  5 ( 13%)  grey stone/concrete 22 ( 56%)  dark  2 (  5%)  other 10
+gampsocleis_ussuriensis        43 pictures  leaves  1 (  2%)  grey stone/concrete 34 ( 79%)  dark  1 (  2%)  other  7
+paratlanticus_ussuriensis      59 pictures  leaves 23 ( 39%)  grey stone/concrete 26 ( 44%)  dark  0 (  0%)  other 10
+tettigonia_ussuriana           43 pictures  leaves  6 ( 14%)  grey stone/concrete 26 ( 60%)  dark  6 ( 14%)  other  5

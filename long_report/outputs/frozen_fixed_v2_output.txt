@@ -1,0 +1,39 @@
+reading C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\data\clean
+227 images, 5 classes, read in 2 s
+  atlanticus_brunneri      43
+  gampsocleis_sedakovii_obscura 39
+  gampsocleis_ussuriensis  43
+  paratlanticus_ussuriensis 59
+  tettigonia_ussuriana     43
+
+reading fixed test set C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\data\test
+  atlanticus_brunneri      10
+  gampsocleis_sedakovii_obscura 10
+  gampsocleis_ussuriensis  10
+  paratlanticus_ussuriensis 10
+  tettigonia_ussuriana     10
+training on 227, testing on 50
+model has 11,179,077 parameters, 2,565 of them will be trained
+epoch  1/10  train loss 1.7757 acc 0.211  test loss 1.8089 acc 0.140
+epoch  2/10  train loss 1.6776 acc 0.233  test loss 1.7649 acc 0.160
+epoch  3/10  train loss 1.6508 acc 0.233  test loss 1.7330 acc 0.180
+epoch  4/10  train loss 1.6218 acc 0.286  test loss 1.7090 acc 0.220
+epoch  5/10  train loss 1.6058 acc 0.282  test loss 1.6911 acc 0.240
+epoch  6/10  train loss 1.5406 acc 0.282  test loss 1.6676 acc 0.240
+epoch  7/10  train loss 1.5178 acc 0.335  test loss 1.6389 acc 0.240
+epoch  8/10  train loss 1.5375 acc 0.313  test loss 1.6139 acc 0.300
+epoch  9/10  train loss 1.5379 acc 0.352  test loss 1.6041 acc 0.280
+epoch 10/10  train loss 1.4486 acc 0.374  test loss 1.5766 acc 0.280
+
+trained in 1.2 minutes
+train accuracy 41.0%
+test  accuracy 28.0%
+wrote C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\results\frozen_fixed_v2_curves.png
+wrote C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\results\frozen_fixed_v2_confusion.png
+wrote C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\results\frozen_fixed_v2_worst.png
+wrote C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\results\frozen_fixed_v2_model.pt
+
+One line for your experiment table:
+| frozen_fixed_v2 | ImageNet | last layer | 10 | 0.0001 | 2,565 | 41.0% | 28.0% |
+
+To put this model on your web page: python src/export_web.py --tag frozen_fixed_v2

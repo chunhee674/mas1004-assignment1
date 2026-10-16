@@ -1,0 +1,52 @@
+== 1. prepare_image (Problem 2)
+data\raw\gampsocleis_ussuriensis\추가_0020.jpg: 1280 x 720, shrunk to 256 x 455, prepare_image gives (3, 224, 224)
+the 224 x 224 crop keeps 43% of the picture and throws away 57%
+this picture was later replaced in data/clean by a crop the student made: 추가_0020(cut).jpg
+
+== 2. three kinds of junk (Problem 4)
+junk_1_grasshopper.jpg: gampsocleis_ussuriensis/추가_0014.jpg  (wrong species label (grasshopper, not katydid))
+junk_2_nymph.jpg: gampsocleis_ussuriensis/2272-m0tkz.jpg  (nymph, species cannot be told)
+junk_3_too_dark.jpg: paratlanticus_ussuriensis/add_025.jpg  (too dark)
+
+== 3. first 20 suspects in each class, removed or kept (Problem 4)
+atlanticus_brunneri             7 of the first 20 suspects removed
+    atlanticus_brunneri/추가_0018.jpg  (wrong species label (looks like another species))
+    atlanticus_brunneri/add_034.jpg  (wrong species label (looks like another species))
+    atlanticus_brunneri/추가_0038.jpg  (replaced by user-cropped copy (cut))
+    atlanticus_brunneri/add_015.jpg  (wrong species label)
+    atlanticus_brunneri/add_029.jpg  (low resolution)
+    atlanticus_brunneri/다운로드 (9).jpg  (replaced by user-cropped copy (cut))
+    atlanticus_brunneri/add_020.jpg  (replaced by user-cropped copy (cut))
+gampsocleis_sedakovii_obscura   1 of the first 20 suspects removed
+    gampsocleis_sedakovii_obscura/add_026.jpg  (replaced by user-cropped copy (cut))
+gampsocleis_ussuriensis         9 of the first 20 suspects removed
+    gampsocleis_ussuriensis/추가_0012.jpg  (composition does not show identifying features)
+    gampsocleis_ussuriensis/add_031.jpg  (nymph, species cannot be told)
+    gampsocleis_ussuriensis/다운로드_conv.jpg  (replaced by user-cropped copy (cut))
+    gampsocleis_ussuriensis/add_006.jpg  (replaced by user-cropped copy (cut))
+    gampsocleis_ussuriensis/추가_0033.jpg  (replaced by user-cropped copy (cut))
+    gampsocleis_ussuriensis/2272-m0tkz.jpg  (nymph, species cannot be told)
+    gampsocleis_ussuriensis/추가_0020.jpg  (replaced by user-cropped copy (cut))
+    gampsocleis_ussuriensis/25560-14rp3d7.kwtof.jpg  (replaced by user-cropped copy (cut))
+    gampsocleis_ussuriensis/추가_0022.jpg  (wrong species label (grasshopper, not katydid))
+paratlanticus_ussuriensis       6 of the first 20 suspects removed
+    paratlanticus_ussuriensis/add_034.jpg  (wrong species label (user request))
+    paratlanticus_ussuriensis/add_025.jpg  (too dark)
+    paratlanticus_ussuriensis/455677_169956_319.jpg  (wrong species label)
+    paratlanticus_ussuriensis/추가_0058.jpg  (replaced by user-cropped copy (cut))
+    paratlanticus_ussuriensis/add_024.jpg  (low resolution (user request))
+    paratlanticus_ussuriensis/add_016.jpg  (replaced by user-cropped copy (cut))
+tettigonia_ussuriana            4 of the first 20 suspects removed
+    tettigonia_ussuriana/add_045.jpg  (composition does not show identifying features)
+    tettigonia_ussuriana/다운로드 (14).jpg  (replaced by user-cropped copy (cut))
+    tettigonia_ussuriana/add_003.jpg  (replaced by user-cropped copy (cut))
+    tettigonia_ussuriana/다운로드 (6).jpg  (replaced by user-cropped copy (cut))
+removed in all: 81, of them in someone's first 20 suspects: 27
+
+== 4. near copies among the pictures the suspects list was made from (Problem 4)
+249 of the 249 pictures found; pairs above 0.95: 0
+removed as an exact duplicate of a test picture: ['gampsocleis_sedakovii_obscura/다운로드 (5).jpg']
+
+== 5. pictures that are none of the five categories (Problem 6)
+gampsocleis_ussuriensis/추가_0014.jpg: tettigonia_ussuriana 46.7%, atlanticus_brunneri 28.1%, gampsocleis_ussuriensis 15.4%
+gampsocleis_ussuriensis/추가_0022.jpg: tettigonia_ussuriana 51.1%, atlanticus_brunneri 35.0%, gampsocleis_ussuriensis 11.1%

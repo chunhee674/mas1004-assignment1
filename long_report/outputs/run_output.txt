@@ -1,0 +1,32 @@
+reading C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\data\clean
+304 images, 5 classes, read in 3 s
+  atlanticus_brunneri      59
+  gampsocleis_sedakovii_obscura 50
+  gampsocleis_ussuriensis  61
+  paratlanticus_ussuriensis 81
+  tettigonia_ussuriana     53
+training on 243, testing on 61
+model has 11,179,077 parameters, 11,179,077 of them will be trained
+epoch  1/10  train loss 1.2979 acc 0.461  test loss 0.9039 acc 0.689
+epoch  2/10  train loss 0.3379 acc 0.984  test loss 0.6679 acc 0.738
+epoch  3/10  train loss 0.1290 acc 0.996  test loss 0.5976 acc 0.803
+epoch  4/10  train loss 0.0546 acc 1.000  test loss 0.5690 acc 0.803
+epoch  5/10  train loss 0.0310 acc 1.000  test loss 0.5529 acc 0.787
+epoch  6/10  train loss 0.0202 acc 1.000  test loss 0.5525 acc 0.754
+epoch  7/10  train loss 0.0109 acc 1.000  test loss 0.5606 acc 0.770
+epoch  8/10  train loss 0.0114 acc 1.000  test loss 0.5677 acc 0.738
+epoch  9/10  train loss 0.0137 acc 1.000  test loss 0.5754 acc 0.738
+epoch 10/10  train loss 0.0115 acc 1.000  test loss 0.5723 acc 0.738
+
+trained in 5.5 minutes
+train accuracy 100.0%
+test  accuracy 73.8%
+wrote C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\results\run_curves.png
+wrote C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\results\run_confusion.png
+wrote C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\results\run_worst.png
+wrote C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\results\run_model.pt
+
+One line for your experiment table:
+| run | ImageNet | all layers | 10 | 0.0001 | 11,179,077 | 100.0% | 73.8% |
+
+To put this model on your web page: python src/export_web.py --tag run

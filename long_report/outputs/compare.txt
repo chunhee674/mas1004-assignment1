@@ -1,0 +1,65 @@
+MAS1004 Assignment 1, checking your work
+
+Training images  (C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\data\clean)
+-------------------------------------------------------------------------------------------------------------
+  atlanticus_brunneri             43 images
+  gampsocleis_sedakovii_obscura    39 images
+  gampsocleis_ussuriensis         43 images
+  paratlanticus_ussuriensis       59 images
+  tettigonia_ussuriana            43 images
+  warning  "gampsocleis_sedakovii_obscura" has only 39 images. With this few, the model has little to learn that class from, and its test accuracy rests on a handful of test images.
+
+Your images from a new source  (C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\data\new_images)
+--------------------------------------------------------------------------------------------------------------------------------
+  atlanticus_brunneri              5 images
+  gampsocleis_sedakovii_obscura     5 images
+  gampsocleis_ussuriensis          5 images
+  paratlanticus_ussuriensis        5 images
+  tettigonia_ussuriana             5 images
+
+The same image appearing twice
+------------------------------
+  ok       no file appears twice byte for byte. Near copies (the same picture resized or re-saved) are only found by `python src/clean.py suspects` and `python src/clean.py overlap`.
+
+The model you exported for the web page
+---------------------------------------
+  ok       5 classes: atlanticus_brunneri, gampsocleis_sedakovii_obscura, gampsocleis_ussuriensis, paratlanticus_ussuriensis, tettigonia_ussuriana
+  ok       model.onnx is 44.8 MB, 11,179,077 parameters
+           input [1, 3, 224, 224], prepared as: shorter side 256, centre 224 x 224, mean [0.485, 0.456, 0.406], std [0.229, 0.224, 0.225]
+
+Does the exported model give the answers Python gave?
+-----------------------------------------------------
+  ok       yes, they agree (largest gap 0.0000)
+
+Your images from a new source  (C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\data\new_images)
+--------------------------------------------------------------------------------------------------------------------------------
+
+  accuracy on your new images: 18/25 = 72.0%
+
+  rows are what it really is, columns are what the model said
+                                    atlantic gampsocl gampsocl paratlan tettigon
+    atlanticus_brunneri                    5        0        0        0        0
+    gampsocleis_sedakovii_obscura          0        4        0        0        1
+    gampsocleis_ussuriensis                0        0        2        0        3
+    paratlanticus_ussuriensis              0        0        0        5        0
+    tettigonia_ussuriana                   1        0        2        0        2
+
+  the mistakes it was most sure about:
+    p5.jpg                       said gampsocleis_ussuriensis (77%), really tettigonia_ussuriana
+    p4.jpg                       said tettigonia_ussuriana (75%), really gampsocleis_ussuriensis
+    p5.jpg                       said tettigonia_ussuriana (69%), really gampsocleis_ussuriensis
+    p4.jpg                       said atlanticus_brunneri (67%), really tettigonia_ussuriana
+    p2.jpg                       said tettigonia_ussuriana (66%), really gampsocleis_ussuriensis
+
+Your saved runs on your new images  (C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\data\new_images)
+-------------------------------------------------------------------------------------------------------------------------------------
+  run               test accuracy   new images
+  run                       73.8%        72.0%   (18/25)
+  fixed                     88.0%        76.0%   (19/25)
+  fixed_v2                  78.0%        72.0%   (18/25)
+
+Summary
+-------
+  nothing is broken
+  1 thing(s) worth a sentence in your report:
+    - "gampsocleis_sedakovii_obscura" has only 39 images. With this few, the model has little to learn that class from, and its test accuracy rests on a handful of test images.

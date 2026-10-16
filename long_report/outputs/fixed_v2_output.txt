@@ -1,0 +1,39 @@
+reading C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\data\clean
+227 images, 5 classes, read in 2 s
+  atlanticus_brunneri      43
+  gampsocleis_sedakovii_obscura 39
+  gampsocleis_ussuriensis  43
+  paratlanticus_ussuriensis 59
+  tettigonia_ussuriana     43
+
+reading fixed test set C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\data\test
+  atlanticus_brunneri      10
+  gampsocleis_sedakovii_obscura 10
+  gampsocleis_ussuriensis  10
+  paratlanticus_ussuriensis 10
+  tettigonia_ussuriana     10
+training on 227, testing on 50
+model has 11,179,077 parameters, 11,179,077 of them will be trained
+epoch  1/10  train loss 1.4601 acc 0.317  test loss 0.8062 acc 0.760
+epoch  2/10  train loss 0.4341 acc 0.956  test loss 0.5716 acc 0.760
+epoch  3/10  train loss 0.2161 acc 0.987  test loss 0.5184 acc 0.740
+epoch  4/10  train loss 0.1677 acc 0.996  test loss 0.4825 acc 0.780
+epoch  5/10  train loss 0.1090 acc 1.000  test loss 0.4925 acc 0.760
+epoch  6/10  train loss 0.0425 acc 1.000  test loss 0.4746 acc 0.820
+epoch  7/10  train loss 0.1225 acc 0.996  test loss 0.4650 acc 0.820
+epoch  8/10  train loss 0.0954 acc 1.000  test loss 0.4766 acc 0.800
+epoch  9/10  train loss 0.0364 acc 1.000  test loss 0.5035 acc 0.780
+epoch 10/10  train loss 0.1244 acc 0.996  test loss 0.4878 acc 0.780
+
+trained in 2.8 minutes
+train accuracy 100.0%
+test  accuracy 78.0%
+wrote C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\results\fixed_v2_curves.png
+wrote C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\results\fixed_v2_confusion.png
+wrote C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\results\fixed_v2_worst.png
+wrote C:\Users\samis\OneDrive\바탕 화면\c, c++\classifier\classifier-main\classifier-main\results\fixed_v2_model.pt
+
+One line for your experiment table:
+| fixed_v2 | ImageNet | all layers | 10 | 0.0001 | 11,179,077 | 100.0% | 78.0% |
+
+To put this model on your web page: python src/export_web.py --tag fixed_v2
